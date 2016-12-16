@@ -1,0 +1,3 @@
+1 use the poisson/main_ppp.cpp file to generate poisson distribution points which save in poisson/Poisson.txt
+2 use voronoi.py file to generate bounded voronoi models with space between each model, voronoi model's points save in Point.txt
+3 use geo.py file to generate gmsh geometry module file
