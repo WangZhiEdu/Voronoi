@@ -106,6 +106,13 @@ class BoundVoronoi:
             ax.plot(end_line_x, end_line_y, 'k-')
         plt.savefig('images/vor_space.png')
         plt.close()
+        # save points
+        with open('Point.txt', 'w', encoding='utf-8') as f:
+            f.write('NumPoints = %d\n' % len(space_vertice_list))
+            for vertices in space_vertice_list:
+                for vertice in vertices:
+                    f.write('%f, %f \t' % (vertice[0], vertice[1]))
+                f.write('\n')
         return vor, space_vertice_list
 
 
