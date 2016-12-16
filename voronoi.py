@@ -25,7 +25,7 @@ class BoundVoronoi:
         vor = sp.spatial.Voronoi(all_points)
         return vor
 
-    def _read_poisson(self, file_name='Poisson.txt'):
+    def _read_poisson(self, file_name='poisson/Poisson.txt'):
         position_list = []
         with open(file_name, 'r', encoding='utf-8') as f:
             first_line = True
