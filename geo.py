@@ -241,7 +241,25 @@ class Cube:
                     f.write('%s\n' % geo_module.geo_format())
 
 
-bound_vor = BoundVoronoi()
-vor, vertice_list = bound_vor.generate()
-cube = Cube(vertice_list)
+def read_points(file_name='Point.txt'):
+        region_point_list = []
+        with open(file_name, 'r', encoding='utf-8') as f:
+            first_line = True
+            for line in f:
+                if first_line:
+                    first_line = False
+                    continue
+                point_list = []
+                line_token = line.split('\t')
+                for token in line_token:
+                    if token == '\n':
+                        continue
+                    tokens = token.split(',')
+                    point_list.append((float(tokens[0].strip()), float(tokens[1].strip())))
+                region_point_list.append(point_list)
+        return region_point_list
+
+
+region_point_list = read_points()
+cube = Cube(region_point_list)
 cube.write()
