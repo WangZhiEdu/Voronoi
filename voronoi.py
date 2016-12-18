@@ -3,6 +3,7 @@ import scipy as sp
 import scipy.spatial
 import matplotlib.pyplot as plt
 import math
+from functools import cmp_to_key
 
 
 class BoundVoronoi:
@@ -35,6 +36,8 @@ class BoundVoronoi:
                     continue
                 line_token = line.split(' ')
                 position_list.append((float(line_token[0]), float(line_token[1])))
+        # sort by coordinate
+        position_list.sort(key=cmp_to_key(lambda a, b: a[0]-b[0] if a[0] != b[0] else a[1]-b[1]))
         return position_list
 
     def _move_point(self, centroid, point):
