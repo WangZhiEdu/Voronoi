@@ -7,7 +7,7 @@ from functools import cmp_to_key
 
 
 class BoundVoronoi:
-    def __init__(self, bound=(-35, 35, -35, 35), space=0.4):
+    def __init__(self, bound=(-35, 35, -35, 35), space=0.2):
         self._bounds = np.array(bound)
         self._space = space
 
