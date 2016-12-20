@@ -1,4 +1,3 @@
-from voronoi import BoundVoronoi
 from enum import Enum
 
 MARK_MESH_SIZE = 'mesh_size'
@@ -232,12 +231,9 @@ class Cube:
             f.write('%s = %s; \n' % (MARK_SPACE_HEIGHT, '0.2'))
             f.write('%s = %s; \n' % (MARK_SOFT_HEIGHT, '6.0'))
             for cylinder in self.cylinders:
-                modules = self.get_modules(cylinder.hard_layer)
-                for geo_module in modules:
+                for geo_module in self.get_modules(cylinder.hard_layer):
                     f.write('%s\n' % geo_module.geo_format())
-            for cylinder in self.cylinders:
-                modules = self.get_modules(cylinder.soft_layer)
-                for geo_module in modules:
+                for geo_module in self.get_modules(cylinder.soft_layer):
                     f.write('%s\n' % geo_module.geo_format())
 
 
